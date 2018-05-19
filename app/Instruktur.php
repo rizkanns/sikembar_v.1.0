@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Instruktur extends Model
 {
-    protected $table = 'instruktur';
+    protected $table = 'instrukturs';
     protected $primaryKey = 'id';
     protected $fillable = ['no_induk','passord_instruktur','nama_instruktur','alamat_instruktur','telp_instruktur','jk_instruktur'];
     public $incrementing = true;

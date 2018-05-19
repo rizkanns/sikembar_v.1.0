@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mobil extends Model
 {
-    protected $table = 'mobil';
+    protected $table = 'mobils';
     protected $primaryKey = 'id';
     protected $fillable = ['no_pol','id_paket','merk_mobil','jenis_mesin','warna_mesin','tahun_mesin'];
     public $incrementing = true;

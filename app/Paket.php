@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paket extends Model
 {
-    protected $table = 'paket';
+    protected $table = 'pakets';
     protected $primaryKey = 'id';
     protected $fillable = ['nama_paket','harga_paket'];
     public $incrementing = true;
@@ -14,6 +14,6 @@ class Paket extends Model
 
     public function paket()
     {
-    	return $this->hasone('App\Paket', 'id_paket', 'id');
+    	return $this->hasmany('App\Paket', 'id_paket', 'id');
     }
 }
