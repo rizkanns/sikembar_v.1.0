@@ -1,8 +1,3 @@
-<head>
-	coba
-</head>
-
-
 <body>
 	<table class="table">
                   <thead>

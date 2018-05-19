@@ -18,7 +18,7 @@ class PelangganController extends Controller
 		return view('pelanggan.paket', ['paket'=>$paket]);
 	}
 
-	public function index()
+	public function tampilkanUIPelanggan()
     {
         return view('pelanggan.index');
     }

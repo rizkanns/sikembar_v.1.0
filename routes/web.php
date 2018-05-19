@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\User;
+use App\Instrultur;
 
-
-Route::get('/paket','PelangganController@indexPaket');
-Route::get('/ya','PelangganController@index');
+Route::get('/','PelangganController@tampilkanUIPelanggan');
