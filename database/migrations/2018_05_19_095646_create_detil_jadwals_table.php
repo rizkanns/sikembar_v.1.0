@@ -14,7 +14,8 @@ class CreateDetilJadwalsTable extends Migration
     public function up()
     {
         Schema::create('detil_jadwals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('id_kursus');
+            $table->integer('id_jadwal');
             $table->timestamps();
         });
     }

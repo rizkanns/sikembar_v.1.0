@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/paket','PelangganController@indexPaket');
+Route::get('/ya','PelangganController@index');
