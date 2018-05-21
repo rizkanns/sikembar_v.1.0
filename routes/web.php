@@ -19,7 +19,11 @@ Route::get('/daftar', function ()
 {
     return view('pelanggan.form');
 });
-Route::get('/profile', function ()
+Route::get('/profilw', function ()
 {
     return view('pelanggan.dashboard');
+});
+Route::get('/admin', function ()
+{
+    return view('admin.pembayaran');
 });
