@@ -15,3 +15,11 @@ use App\User;
 use App\Instrultur;
 
 Route::get('/','PelangganController@tampilkanUIPelanggan');
+Route::get('/daftar', function ()
+{
+    return view('pelanggan.form');
+});
+Route::get('/profile', function ()
+{
+    return view('pelanggan.dashboard');
+});

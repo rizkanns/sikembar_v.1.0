@@ -430,7 +430,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="copyright wow zoomIn" data-wow-duration="3s">
-                            <p>Made with <i class="fa fa-heart"></i> by Kelompok 4. All Rights Reserved</p>
+                            <p>Made with <i class="fa fa-heart"></i> by Kelompok B05</p>
                         </div>
                     </div>
                 </div>
