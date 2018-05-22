@@ -171,7 +171,20 @@
                                                         <td>
                                                             <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
                                                         </td>
-
+<div id="modal-delete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <center>
+                    Anda yakin ingin menghapus data?<hr><br>
+                        <form class="form-horizontal" role="form" method="get" action="{{ url('/admin/pelanggan/delete/'.$listpelanggan->username) }}"><button>Iya</button>
+                        </form>
+                        <button>Tidak</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+</div>
                                                     </tr>
                                                   @endforeach
                                         </tbody>
@@ -187,21 +200,6 @@
             </div>
         </div>
     </div>
-
-<div id="modal-delete" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <center>
-                    Anda yakin ingin menghapus data?<hr><br>
-                        <form class="form-horizontal" role="form" method="get" action="{{ url('/admin/pelanggan/delete/'.$listpelanggan->username) }}"><button>Iya</button>
-                        </form>
-                        <button>Tidak</button>
-                    </center>
-                </div>
-            </div>
-        </div>
-</div>
 </body>
 
 @include('admin.parts.footer')

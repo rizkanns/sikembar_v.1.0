@@ -43,11 +43,16 @@ Route::get('/admin-mobil', function ()
 });
 
 
+
 Route::post('/admin/pelanggan/insert','AdminController@insertPelanggan');
 Route::get('/admin/pelanggan/update/{username}', 'AdminController@updatePelanggan');
-Route::get('/admin/pelanggan/delete/{username}', 'AdminController@deletePelanggan');
+Route::get('/admin/pelanggan/delete/{id}', 'AdminController@deletePelanggan');
 Route::get('/admin-pelanggan','AdminController@showPelanggan');
 
+Route::post('/admin/instruktur/insert','AdminController@insertInstruktur');
+Route::get('/admin/instruktur/update/{id}', 'AdminController@updateInstruktur');
+Route::get('/admin/instruktur/delete/{id}', 'AdminController@deleteInstruktur');
+Route::get('/admin-instruktur','AdminController@showInstruktur');
 
 Route::post('/admin/mobil/insert','AdminController@insertMobil');
 Route::get('/admin/mobil/update/{id}', 'AdminController@updateMobil');

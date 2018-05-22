@@ -196,7 +196,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header" data-background-color="purple">
                                     <h4 class="title">Data Mobil</h4>
@@ -204,7 +204,7 @@
                                 <div class="card-content table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
-                                            <th>No</th>
+                                            <!-- <th>No</th> -->
                                             <th>Nomor Plat</th>
                                             <th>Merk</th>
                                             <th>Tahun Keluaran</th>
@@ -215,60 +215,36 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>L 1234 WR</td>
-                                                <td>Mobilio</td>
-                                                <td>2012</td>
-                                                <td>Hitam</td>
-                                                <td>AT</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>L 1234 WR</td>
-                                                <td>Xenia</td>
-                                                <td>2013</td>
-                                                <td>Hitam</td>
-                                                <td>AT</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>L 1234 WR</td>
-                                                <td>Mobilio</td>
-                                                <td>2012</td>
-                                                <td>Hitam</td>
-                                                <td>AT</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>L 1234 WR</td>
-                                                <td>Avanza</td>
-                                                <td>2015</td>
-                                                <td>Hitam</td>
-                                                <td>AT</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
+                                                @foreach($mobil as $listmobil)
+                                                    <tr>
+                                                        <td>{{$listmobil->no_pol}}</td>
+                                                        <td>{{$listmobil->merk_mobil}}</td>
+                                                        <td>{{$listmobil->tahun_mesin}}</td>
+                                                        <td>{{$listmobil->warna_mobil}}</td>
+                                                        <td>{{$listmobil->jenis_mesin}}</td>
+                                                        <td>
+                                                            <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;" href="{{url('/admin/mobil/update/'.$listmobil->no_pol)}}">Edit</button>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
+                                                        </td>
+
+    <div id="modal-delete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <center>
+                    Anda yakin ingin menghapus data?<hr><br>
+                        <form class="form-horizontal" role="form" method="get" action="{{ url('/admin/mobil/delete/'.$listmobil->no_pol) }}"><button>Iya</button>
+                        </form>
+                        <button>Tidak</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+                                                    </tr>
+                                                @endforeach
                                             </tr>
                                         </tbody>
                                     </table>
@@ -284,19 +260,7 @@
         </div>
     </div>
 
-    <div id="modal-delete" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <center>
-                    Anda yakin ingin menghapus data?<hr><br>
-                        <button>Iya</button>
-                        <button>Tidak</button>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </body>
 
 @include('admin.parts.footer')

@@ -8,7 +8,7 @@ use App\DetilJadwal;
 use App\DetilKursus;
 use App\EvaluasiInstruktur;
 use App\EvaluasiPelanggan;
-use App\Instrutur;
+use App\Instruktur;
 use App\Jadwal;
 use App\Mobil;
 use App\Paket;
@@ -38,9 +38,9 @@ class adminController extends Controller
     	return redirect('/admin-pelanggan');
     }
 
-	public function deletePelanggan($username)
+	public function deletePelanggan($id)
 	{
-    	User::find($username)->delete();
+    	DB::table('users')->where('username',$id)->delete();
     	return redirect('/admin-pelanggan');
     }
 
@@ -49,6 +49,41 @@ class adminController extends Controller
         $pelanggan = DB::table('users')->get();
 		return view('admin.pelanggan', ['pelanggan'=>$pelanggan]);
     }
+
+
+
+    // instruktur
+    public function insertInstruktur(Request $request)
+    {
+		$instruktur = New Instruktur;
+		$instruktur->no_induk = $request->input('no_induk');
+		$instruktur->password_instruktur = $request->input('password_instruktur');
+		$instruktur->nama_instruktur = $request->input('nama_instruktur');
+		$instruktur->alamat_instruktur = $request->input('alamat_instruktur');
+		$instruktur->telp_instruktur = $request->input('telp_instruktur');
+		$instruktur->jk_instruktur = $request->input('jk_instruktur');
+		$instruktur->save();
+		return redirect('/admin-instruktur');
+	}
+
+	public function updateInstruktur(Request $request, $id)
+    {
+    	$instruktur = Instrutur::find($id)->update($request->all());
+    	return redirect('/admin-instruktur');
+    }
+
+	public function deleteInstruktur($id)
+	{
+    	DB::table('instrukturs')->where('no_induk',$id)->delete();
+    	return redirect('/admin-instruktur');
+    }
+
+        public function showInstruktur()
+	{
+        $instruktur = DB::table('instrukturs')->get();
+		return view('admin.instruktur', ['instruktur'=>$instruktur]);
+    }
+
 
 
     // mobil
@@ -66,13 +101,13 @@ class adminController extends Controller
 
 	public function updateMobil(Request $request, $id)
     {
-    	$mobil = User::find($id)->update($request->all());
+    	$mobil = Mobil::find($id)->update($request->all());
     	return redirect('/admin-mobil');
     }
 
 	public function deleteMobil($id)
 	{
-    	User::find($id)->delete();
+    	DB::table('mobils')->where('no_pol',$id)->delete();
     	return redirect('/admin-mobil');
     }
 
