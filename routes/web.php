@@ -25,5 +25,8 @@ Route::get('/profilw', function ()
 });
 Route::get('/admin', function ()
 {
-    return view('admin.pembayaran');
+    return view('admin.pelanggan');
 });
+
+
+Route::post('/admin/pelanggan/insert','AdminController@insertPelanggan');

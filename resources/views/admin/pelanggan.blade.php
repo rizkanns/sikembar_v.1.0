@@ -64,18 +64,19 @@
                                     <p class="category">Tambah data pelanggan</p>
                                 </div>
                                 <div class="card-content">
-                                    <form>
+                                    <form action="{{ url('/admin/pelanggan/insert') }}" method = "post">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
-                                                    <label class="control-label">Username</label>
-                                                    <input type="text" class="form-control">
+                                                    <label class="control-label" >Username</label>
+                                                    <input type="text" class="form-control" name="username">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Password</label>
-                                                    <input type="email" class="form-control">
+                                                    <input type="text" class="form-control" name="password">
                                                 </div>
                                             </div>
                                         </div>
@@ -83,13 +84,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Nama Lengkap</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="nama_pelanggan">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Nomor HP</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="telp_pelanggan">
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +98,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Alamat</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="alamat_pelanggan">
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +121,7 @@
                                                     <label>
                                                         <input type="radio" name="optionsRadios">
                                                         Laki-laki
-                                                    </label>
+                                                    </label>    
                                                     <label>
                                                         <input type="radio" name="optionsRadios">
                                                         Perempuan
