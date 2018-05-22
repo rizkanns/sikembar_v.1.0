@@ -5,7 +5,6 @@
 
 <body>
     <div class="wrapper">
-        @include('admin.parts.navbar')
         <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo">
                 <a href="#" class="simple-text">
@@ -15,37 +14,37 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="dashboard.php">
+                        <a href="{{ url('admin-dashboard') }}">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./pembayaran.php">
+                        <a href="{{ url('admin-pembayaran') }}">
                             <i class="material-icons">playlist_add_check</i>
                             <p>Pembayaran</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./jadwal.php">
+                        <a href="{{ url('admin-jadwal') }}">
                             <i class="material-icons">event</i>
                             <p>Jadwal</p>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="./pelanggan.php">
+                        <a href="{{ url('admin-pelanggan') }}">
                             <i class="material-icons">person</i>
                             <p>Pelanggan</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./instruktur.php">
+                        <a href="{{ url('admin-instruktur') }}">
                             <i class="material-icons">group</i>
                             <p>Instruktur</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./mobil.php">
+                        <a href="{{ url('admin-mobil') }}">
                             <i class="material-icons">directions_car</i>
                             <p>Mobil</p>
                         </a>
@@ -54,6 +53,7 @@
             </div>
         </div>
         <div class="main-panel">
+            @include('admin.parts.navbar')
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -76,7 +76,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Password</label>
-                                                    <input type="text" class="form-control" name="password">
+                                                    <input type="password" class="form-control" name="password">
                                                 </div>
                                             </div>
                                         </div>
@@ -119,11 +119,11 @@
                                             <div class="dropdown col-md-3">
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="optionsRadios">
+                                                        <input type="radio" name="jk_pelanggan" value="Laki-laki">
                                                         Laki-laki
                                                     </label>    
                                                     <label>
-                                                        <input type="radio" name="optionsRadios">
+                                                        <input type="radio" name="jk_pelanggan" value="Perempuan">
                                                         Perempuan
                                                     </label>
                                                 </div>
@@ -143,82 +143,37 @@
                                 <div class="card-content table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
-                                            <th>No</th>
+                                            <!-- <th>No</th> -->
                                             <th>Username</th>
                                             <th>Password</th>
                                             <th>Nama</th>
                                             <th>No HP</th>
                                             <th>Alamat</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Paket</th>
+                                            <!-- <th>Paket</th> -->
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>pelkenuk</td>
-                                                <td>pelkenuk@gmail.com</td>
-                                                <td>Rizka Annisa</td>
-                                                <td>081515580307</td>
-                                                <td>PMI II no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>salina</td>
-                                                <td>salina@gmail.com</td>
-                                                <td>Dwi Irsalina</td>
-                                                <td>081515580307</td>
-                                                <td>Keputih II no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>popsky</td>
-                                                <td>popsky@gmail.com</td>
-                                                <td>Shafira Aisyah</td>
-                                                <td>081515580307</td>
-                                                <td>Dinoyo Sekolahan no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>salina</td>
-                                                <td>salina@gmail.com</td>
-                                                <td>Dwi Irsalina</td>
-                                                <td>081515580307</td>
-                                                <td>Keputih II no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>
-                                                <td>
-                                                    <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
+                                                @foreach($pelanggan as $listpelanggan)
+                                                    <tr>
+                                                        <!-- <td></td> -->
+                                                        <td>{{$listpelanggan->username}}</td>
+                                                        <td>{{$listpelanggan->password}}</td>
+                                                        <td>{{$listpelanggan->nama_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->telp_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->alamat_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->jk_pelanggan}}</td>
+                                                        <!-- <td></td> -->
+                                                        <td>
+                                                            <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;" href="{{url('/admin/pelanggan/update/'.$listpelanggan->username)}}">Edit</button>
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
+                                                        </td>
+
+                                                    </tr>
+                                                  @endforeach
                                         </tbody>
                                     </table>
                                     <br><br>
@@ -239,7 +194,8 @@
                 <div class="modal-body">
                     <center>
                     Anda yakin ingin menghapus data?<hr><br>
-                        <button>Iya</button>
+                        <form class="form-horizontal" role="form" method="get" action="{{ url('/admin/pelanggan/delete/'.$listpelanggan->username) }}"><button>Iya</button>
+                        </form>
                         <button>Tidak</button>
                     </center>
                 </div>
