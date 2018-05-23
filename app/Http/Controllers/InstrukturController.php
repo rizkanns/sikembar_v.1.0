@@ -31,4 +31,23 @@ class InstrukturController extends Controller
 		$evalpelanggan->save();
 		return redirect('/instruktur-evaluasi');
 	}
+	public function showEvaluasiPelanggan()
+	{
+        $evalpelanggan = DB::table('evaluasi_pelanggans')->get();
+		return view('instruktur.evaluasi', ['evalpelanggan'=>$evalpelanggan]);
+    }
+
+    //jadwal
+    public function showJadwal()
+	{
+        $jadwal = DB::table('jadwals')->get();
+		return view('instruktur.jadwal', ['jadwal'=>$jadwal]);
+    }
+
+    //pelanggan
+    public function showPelanggan()
+	{
+        $pelanggan = DB::table('users')->get();
+		return view('instruktur.pelanggan', ['pelanggan'=>$pelanggan]);
+    }
 }
