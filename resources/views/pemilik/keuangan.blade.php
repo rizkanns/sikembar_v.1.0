@@ -15,19 +15,19 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li>
-                        <a href="dashboard.php">
+                        <a href="{{ url('pemilik-dashboard') }}">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="active">
-                        <a href="./keuangan.php">
+                        <a href="{{ url('pemilik-keuangan') }}">
                             <i class="material-icons">playlist_add_check</i>
                             <p>Laporan Keuangan</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./penilaian.php">
+                        <a href="{{ url('pemilik-penilaian') }}">
                             <i class="material-icons">event</i>
                             <p>Penilaian Instruktur</p>
                         </a>
