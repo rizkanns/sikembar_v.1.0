@@ -18,6 +18,11 @@ use DB;
 
 class adminController extends Controller
 {
+	public function login()
+	{
+		return redirect('/admin-dashboard');
+	}
+
 	// jadwal
     public function insertJadwal(Request $request)
     {

@@ -53,6 +53,7 @@ Route::get('/instruktur-login', function ()
 {
     return view('instruktur.login');
 });
+Route::post('/admin/login','AdminController@login');
 
 Route::post('/admin/jadwal/insert','AdminController@insertJadwal');
 Route::get('/admin/jadwal/update/{id}', 'AdminController@updateJadwal');
@@ -75,6 +76,8 @@ Route::get('/admin/mobil/delete/{id}', 'AdminController@deleteMobil');
 Route::get('/admin-mobil','AdminController@showMobil');
 
 // PEMILIK - VIEW
+Route::post('/pemilik/login','PemilikController@login');
+
 Route::get('/pemilik-dashboard', function ()
 {
     return view('pemilik.dashboard');

@@ -35,7 +35,8 @@
         <span class="login100-form-title p-b-41">
           ADMIN LOGIN
         </span>
-        <form class="login100-form validate-form p-b-33 p-t-5">
+        <form class="login100-form validate-form p-b-33 p-t-5" id="form_id" method="post" name="myform" action="/admin/login">
+          {{ csrf_field() }}
 
           <div class="wrap-input100 validate-input" data-validate = "Enter username">
             <input class="input100" type="text" name="username" placeholder="User name">
@@ -77,6 +78,7 @@
   <script src="login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
   <script src="login/js/main.js"></script>
+  <script src="assets/js/login.js"></script>
 
 </body>
 </html>
