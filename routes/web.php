@@ -93,3 +93,22 @@ Route::get('/pemilik-penilaian', function ()
 
 Route::get('/pemilik-keuangan','PemilikController@showKeuangan');
 Route::get('/pemilik-penilaian','PemilikController@showPenilaian');
+
+
+// INSTRUKTUR - VIEW
+Route::get('/instruktur-dashboard', function ()
+{
+    return view('instruktur.dashboard');
+});
+Route::get('/instruktur-evaluasi', function ()
+{
+    return view('instruktur.evaluasi');
+});
+Route::get('/instruktur-jadwal', function ()
+{
+    return view('instruktur.jadwal');
+});
+Route::get('/instruktur-pelanggan', function ()
+{
+    return view('instruktur.pelanggan');
+});

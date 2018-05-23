@@ -4,16 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\DetilJadwal;
-use App\DetilKursus;
 use App\EvaluasiInstruktur;
-use App\EvaluasiPelanggan;
-use App\Instruktur;
-use App\Jadwal;
-use App\Mobil;
-use App\Paket;
 use App\Pembayaran;
-use App\User;
 use DB;
 
 class pemilikController extends Controller
@@ -31,6 +23,7 @@ class pemilikController extends Controller
 		return view('pemilik.keuangan', ['keuangan'=>$keuangan]);
 	}
 
+	//penilaian
 	public function showPenilaian()
 	{
 		$penilaian = DB::table('evaluasi_instrukturs')->get();
