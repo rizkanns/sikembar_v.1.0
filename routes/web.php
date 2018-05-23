@@ -41,7 +41,18 @@ Route::get('/admin-mobil', function ()
 {
     return view('admin.mobil');
 });
-
+Route::get('/admin-login', function ()
+{
+    return view('admin.login');
+});
+Route::get('/pemilik-login', function ()
+{
+    return view('pemilik.login');
+});
+Route::get('/instruktur-login', function ()
+{
+    return view('instruktur.login');
+});
 
 Route::post('/admin/jadwal/insert','AdminController@insertJadwal');
 Route::get('/admin/jadwal/update/{id}', 'AdminController@updateJadwal');
