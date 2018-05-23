@@ -16,7 +16,6 @@ class CreateEvaluasiPelanggansTable extends Migration
         Schema::create('evaluasi_pelanggans', function (Blueprint $table) {
             $table->increments('id_evalpelanggan');
             $table->integer('id_kursus');
-            $table->foreign('id_kursus','evaluasi_pelanggans_fk1')->references('id_kursus')->on('detil_kursuses')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('menyalakan_mesin');
             $table->integer('perpindahan_gigi');
             $table->integer('melakukan_rem');
