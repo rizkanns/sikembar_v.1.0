@@ -15,7 +15,6 @@ class CreatePembayaransTable extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->increments('id_pembayaran');
-            $table->integer('id_kursus');
             $table->string('nama_atm');
             $table->integer('no_rek');
             $table->string('nama_pembayar');

@@ -15,7 +15,6 @@ class CreateEvaluasiPelanggansTable extends Migration
     {
         Schema::create('evaluasi_pelanggans', function (Blueprint $table) {
             $table->increments('id_evalpelanggan');
-            $table->integer('id_kursus');
             $table->integer('menyalakan_mesin');
             $table->integer('perpindahan_gigi');
             $table->integer('melakukan_rem');

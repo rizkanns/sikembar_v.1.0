@@ -15,7 +15,6 @@ class CreateEvaluasiInstruktursTable extends Migration
     {
         Schema::create('evaluasi_instrukturs', function (Blueprint $table) {
             $table->increments('id_evalinstruktur');
-            $table->integer('id_kursus');
             $table->integer('penilaian');
             $table->text('kritik_saran');
             $table->timestamps();
