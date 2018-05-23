@@ -43,9 +43,13 @@ Route::get('/admin-mobil', function ()
 });
 
 
+Route::post('/admin/jadwal/insert','AdminController@insertJadwal');
+Route::get('/admin/jadwal/update/{id}', 'AdminController@updateJadwal');
+Route::get('/admin/jadwal/delete/{id}', 'AdminController@deleteJadwal');
+Route::get('/admin-jadwal','AdminController@showJadwal');
 
 Route::post('/admin/pelanggan/insert','AdminController@insertPelanggan');
-Route::get('/admin/pelanggan/update/{username}', 'AdminController@updatePelanggan');
+Route::get('/admin/pelanggan/update/{id}', 'AdminController@updatePelanggan');
 Route::get('/admin/pelanggan/delete/{id}', 'AdminController@deletePelanggan');
 Route::get('/admin-pelanggan','AdminController@showPelanggan');
 

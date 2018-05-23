@@ -114,7 +114,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary pull-right">Update Mobil</button>
+                                        <button type="submit" class="btn btn-primary pull-right">Tambah Mobil</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -214,7 +214,7 @@
                                             <th>Delete</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr> 
                                                 @foreach($mobil as $listmobil)
                                                     <tr>
                                                         <td>{{$listmobil->no_pol}}</td>
@@ -223,13 +223,76 @@
                                                         <td>{{$listmobil->warna_mobil}}</td>
                                                         <td>{{$listmobil->jenis_mesin}}</td>
                                                         <td>
-                                                            <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;" href="{{url('/admin/mobil/update/'.$listmobil->no_pol)}}">Edit</button>
+                                                            <button data-target="#myModal{{$listmobil->no_pol}}" type="button" data-toggle="modal" rel="tooltip" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
                                                         </td>
+    <div class="modal fade" id="myModal{{$listmobil->no_pol}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal">Edit Data Pelanggan</h4>
+            </div>
+            <div class="modal-body">                       
+                <form action="{{ url('/admin/mobil/update/'.$listmobil->no_pol) }}" method = "get">
+                    <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nomor Plat</label>
+                                                    <input type="text" class="form-control" name="no_pol" value="{{$listmobil->no_pol}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Merk Mobil</label>
+                                                    <input type="text" class="form-control" name="merk_mobil" value="{{$listmobil->merk_mobil}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Tahun Keluaran</label>
+                                                    <input type="text" class="form-control" name="tahun_mesin" name="{{$listmobil->tahun_mesin}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Warna Mobil</label>
+                                                    <input type="text" class="form-control" name="warna_mobil" value="{{$listmobil->warna_mobil}}">
+                                                </div>
+                                            </div>
+                                        </div><br>
+                                        <label>Jenis Mobil</label>
+                                        <div class="row">
+                                            <div class="dropdown col-md-3">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="jenis_mesin" value="AT">
+                                                        AT
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="jenis_mesin" value="MT">
+                                                        MT
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary pull-right">Update Mobil</button>
+                    <div class="clearfix"></div>
+                </form>    
+            </div>
+        </div>
+    </div>
+</div>
                                                         <td>
-                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
+                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{$listmobil->no_pol}}" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
                                                         </td>
-
-    <div id="modal-delete" class="modal fade" role="dialog">
+<div id="modal-delete{{$listmobil->no_pol}}" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
@@ -242,7 +305,7 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
                                                     </tr>
                                                 @endforeach
                                             </tr>

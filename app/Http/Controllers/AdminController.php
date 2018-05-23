@@ -18,6 +18,40 @@ use DB;
 
 class adminController extends Controller
 {
+	// jadwal
+    public function insertJadwal(Request $request)
+    {
+		$jadwal = New Jadwal;
+		$jadwal->id = $request->input('id');
+		$jadwal->no_induk = $request->input('no_induk');
+		$jadwal->username = $request->input('username');
+		$jadwal->tanggal_kursus = $request->input('tanggal_kursus');
+		$jadwal->jam_mulai = $request->input('jam_mulai');
+		$jadwal->jam_selesai = $request->input('jam_selesai');
+		$jadwal->save();
+		return redirect('/admin-jadwal');
+	}
+
+	public function updateJadwal(Request $request, $id)
+    {
+    	DB::table('jadwals')->where('id',$id)->update($request->all());
+    	return redirect('/admin-jadwal');
+    }
+
+	public function deleteJadwal($id)
+	{
+    	DB::table('jadwals')->where('id',$id)->delete();
+    	return redirect('/admin-jadwal');
+    }
+
+    public function showJadwal()
+	{
+        $jadwal = DB::table('jadwals')->get();
+		return view('admin.jadwal', ['jadwal'=>$jadwal]);
+    }
+
+
+
 	// pelanggan
     public function insertPelanggan(Request $request)
     {
@@ -32,9 +66,9 @@ class adminController extends Controller
 		return redirect('/admin-pelanggan');
 	}
 
-	public function updatePelanggan(Request $request, $username)
+	public function updatePelanggan(Request $request, $id)
     {
-    	$pelanggan = User::find($username)->update($request->all());
+    	DB::table('users')->where('username',$id)->update($request->all());
     	return redirect('/admin-pelanggan');
     }
 
@@ -68,7 +102,7 @@ class adminController extends Controller
 
 	public function updateInstruktur(Request $request, $id)
     {
-    	$instruktur = Instrutur::find($id)->update($request->all());
+    	DB::table('instrukturs')->where('no_induk',$id)->update($request->all());
     	return redirect('/admin-instruktur');
     }
 
@@ -101,7 +135,7 @@ class adminController extends Controller
 
 	public function updateMobil(Request $request, $id)
     {
-    	$mobil = Mobil::find($id)->update($request->all());
+    	DB::table('mobils')->where('no_pol',$id)->update($request->all());
     	return redirect('/admin-mobil');
     }
 

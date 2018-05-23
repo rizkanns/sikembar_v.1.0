@@ -154,12 +154,80 @@
                                                         <td>{{$listinstruktur->jk_instruktur}}</td>
                                                         <!-- <td></td> -->
                                                         <td>
-                                                            <button class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;" href="{{url('/admin/instruktur/update/'.$listinstruktur->no_induk)}}">Edit</button>
+                                                            <button data-target="#myModal{{$listinstruktur->no_induk}}" type="button" data-toggle="modal" rel="tooltip" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
                                                         </td>
+    <div class="modal fade" id="myModal{{$listinstruktur->no_induk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal">Edit Data Pelanggan</h4>
+            </div>
+            <div class="modal-body">                       
+                <form action="{{ url('/admin/instruktur/update/'.$listinstruktur->no_induk) }}" method = "get">
+                    <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nomor Induk</label>
+                                                    <input type="text" class="form-control" name="no_induk" value="{{$listinstruktur->no_induk}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Password</label>
+                                                    <input type="password" class="form-control" name="password_instruktur" value="{{$listinstruktur->password_instruktur}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nama Lengkap</label>
+                                                    <input type="text" class="form-control" name="nama_instruktur" value="{{$listinstruktur->nama_instruktur}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Nomor HP</label>
+                                                    <input type="text" class="form-control" name="telp_instruktur" value="{{$listinstruktur->telp_instruktur}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Alamat</label>
+                                                    <input type="text" class="form-control" name="alamat_instruktur" value="{{$listinstruktur->alamat_instruktur}}">
+                                                </div>
+                                            </div>
+                                        </div><br><br>
+                                        <label>Jenis Kelamin</label>
+                                        <div class="row">
+                                            <div class="dropdown col-md-4">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="jk_instruktur" value="Laki-laki">
+                                                        Laki-laki
+                                                    </label>    
+                                                    <label>
+                                                        <input type="radio" name="jk_instruktur" value="Perempuan">
+                                                        Perempuan
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary pull-right">Update Pelanggan</button>
+                    <div class="clearfix"></div>
+                </form>    
+            </div>
+        </div>
+    </div>
+</div>
                                                         <td>
-                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
+                                                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{$listinstruktur->no_induk}}" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
                                                         </td>
-<div id="modal-delete" class="modal fade" role="dialog">
+<div id="modal-delete{{$listinstruktur->no_induk}}" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">

@@ -5,7 +5,7 @@
 
 <body>
     <div class="wrapper">
-        @include('admin.parts.navbar')
+        
         <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo">
                 <a href="#" class="simple-text">
@@ -15,37 +15,37 @@
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.php">
+                        <a href="{{ url('admin-dashboard') }}">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./pembayaran.php">
+                        <a href="{{ url('admin-pembayaran') }}">
                             <i class="material-icons">playlist_add_check</i>
                             <p>Pembayaran</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./jadwal.php">
+                        <a href="{{ url('admin-jadwal') }}">
                             <i class="material-icons">event</i>
                             <p>Jadwal</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./pelanggan.php">
+                        <a href="{{ url('admin-pelanggan') }}">
                             <i class="material-icons">person</i>
                             <p>Pelanggan</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./instruktur.php">
+                        <a href="{{ url('admin-instruktur') }}">
                             <i class="material-icons">group</i>
                             <p>Instruktur</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./mobil.php">
+                        <a href="{{ url('admin-mobil') }}">
                             <i class="material-icons">directions_car</i>
                             <p>Mobil</p>
                         </a>
@@ -54,6 +54,7 @@
             </div>
         </div>
         <div class="main-panel">
+            @include('admin.parts.navbar')
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
