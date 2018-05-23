@@ -12,7 +12,7 @@
 */
 
 use App\User;
-use App\Instrultur;
+use App\Instruktur;
 Route::get('/','PelangganController@tampilkanUIPelanggan');
 
 
@@ -62,3 +62,20 @@ Route::post('/admin/mobil/insert','AdminController@insertMobil');
 Route::get('/admin/mobil/update/{id}', 'AdminController@updateMobil');
 Route::get('/admin/mobil/delete/{id}', 'AdminController@deleteMobil');
 Route::get('/admin-mobil','AdminController@showMobil');
+
+// PEMILIK - VIEW
+Route::get('/pemilik-dashboard', function ()
+{
+    return view('pemilik.dashboard');
+});
+Route::get('/pemilik-keuangan', function ()
+{
+    return view('pemilik.keuangan');
+});
+Route::get('/pemilik-penilaian', function ()
+{
+    return view('pemilik.penilaian');
+});
+
+Route::get('/pemilik-keuangan','PemilikController@showKeuangan');
+Route::get('/pemilik-penilaian','PemilikController@showPenilaian');

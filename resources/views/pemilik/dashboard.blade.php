@@ -9,25 +9,25 @@
         <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    pemilik
+                    Pemilik
                 </a>
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
                     <li class="active">
-                        <a href="dashboard.php">
+                        <a href="{{ url('pemilik-dashboard') }}">
                             <i class="material-icons">dashboard</i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./keuangan.php">
+                        <a href="{{ url('pemilik-keuangan') }}">
                             <i class="material-icons">playlist_add_check</i>
                             <p>Laporan Keuangan</p>
                         </a>
                     </li>
                     <li>
-                        <a href="./penilaian.php">
+                        <a href="{{ url('pemilik-penilaian') }}">
                             <i class="material-icons">event</i>
                             <p>Penilaian Instruktur</p>
                         </a>
