@@ -92,6 +92,7 @@ Route::get('/pemilik-penilaian', function ()
 });
 
 Route::get('/pemilik-keuangan','PemilikController@showKeuangan');
+
 Route::get('/pemilik-penilaian','PemilikController@showPenilaian');
 
 
@@ -112,3 +113,10 @@ Route::get('/instruktur-pelanggan', function ()
 {
     return view('instruktur.pelanggan');
 });
+
+Route::post('/instruktur/evaluasi/insert','InstrukturController@insertEvaluasiPelanggan');
+Route::get('/instruktur-evaluasi','InstrukturController@showEvaluasiPelanggan');
+
+Route::get('/instruktur-jadwal','InstrukturController@showJadwal');
+
+Route::get('/instruktur-pelanggan','InstrukturController@showPelanggan');
