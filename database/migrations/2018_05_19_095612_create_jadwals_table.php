@@ -16,7 +16,9 @@ class CreateJadwalsTable extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('no_induk');
+            $table->foreign('no_induk','jadwals_fk1')->references('no_induk')->on('instrukturs')->onDelete('set null')->onUpdate('cascade');
             $table->string('username');
+            $table->foreign('username','jadwals_fk2')->references('username')->on('users')->onDelete('set null')->onUpdate('cascade');
             $table->date('tanggal_kursus');
             $table->time('jam_mulai');
             $table->time('jam_selesai');
