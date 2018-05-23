@@ -18,6 +18,12 @@ use DB;
 
 class pemilikController extends Controller
 {
+	//login
+	public function login()
+	{
+		return redirect('/pemilik-dashboard');
+	}
+
 	//keuangan
 	public function showKeuangan()
 	{
