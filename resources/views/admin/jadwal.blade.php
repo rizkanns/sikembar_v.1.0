@@ -140,8 +140,8 @@
                                     <table class="table">
                                         <thead class="text-primary">
                                             <th>No</th>
-                                            <th>Nama Instruktur</th>
                                             <th>Nama Pelanggan</th>
+                                            <th>Nama Instruktur</th>
                                             <th>Tanggal</th>
                                             <th>Jam Mulai</th>
                                             <th>Jam Berakhir</th>
@@ -151,18 +151,92 @@
                                         <tbody>
                                             <tr>
                                                 @foreach($jadwal as $listjadwal)
-                                                <td>{{$listjadwal->id}}</td>
-                                                <td>{{$listjadwal->no_induk}}</td>
+                                                <td>{{$listjadwal->id_jadwal}}</td>
                                                 <td>{{$listjadwal->username}}</td>
+                                                <td>{{$listjadwal->no_induk}}</td>
                                                 <td>{{$listjadwal->tanggal_kursus}}</td>
                                                 <td>{{$listjadwal->jam_mulai}}</td>
                                                 <td>{{$listjadwal->jam_selesai}}</td>
                                                 <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
+                                                    <button data-target="#editModal{{$listjadwal->id_jadwal}}" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
                                                 </td>
+
+
+<div id="editModal{{$listjadwal->id_jadwal}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update jadwal</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('/admin/jadwal/update/'.$listjadwal->id_jadwal) }}" method = "get">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Username</label>
+                            <input disabled type="text" class="form-control" name="tanggal_kursus" value="{{$listjadwal->username}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>No Induk</label>
+                            <input disabled type="text" class="form-control" name="tanggal_kursus" value="{{$listjadwal->no_induk}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group label-floating">
+                                <!-- <label class="control-label">Tanggal</label> -->
+                                <label>Tanggal</label>
+                                <input type="date" class="form-control" name="tanggal_kursus" value="{{$listjadwal->tanggal_kursus}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group label-floating">
+                                <!-- <label class="control-label">Jam</label> -->
+                                <label>Jam Mulai</label>
+                                <input type="time" class="form-control" name="jam_mulai" value="{{$listjadwal->jam_mulai}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group label-floating">
+                                <!-- <label class="control-label">Jam</label> -->
+                                <label>Jam Berakhir</label>
+                                <input type="time" class="form-control" name="jam_selesai" value="{{$listjadwal->jam_selesai}}">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary pull-right">Update Jadwal</button>
+                    <div class="clearfix"></div>
+                </form>    
+                </div>
+            </div>
+        </div>
+</div>
+
                                                 <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button> 
+                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete{{$listjadwal->id_jadwal}}" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button> 
                                                 </td>
+
+                                                <div id="modal-delete{{$listjadwal->id_jadwal}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <center>
+                    Anda yakin ingin menghapus data?<hr><br>
+                        <form class="form-horizontal" role="form" method="get" action="{{ url('/admin/jadwal/delete/'.$listjadwal->id_jadwal) }}"><button>Iya</button>
+                        </form>
+                        <button>Tidak</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+</div>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -174,7 +248,7 @@
                     </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal" tabindex="0" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -186,18 +260,22 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Nama Pelanggan</label>
-                                <input type="text" class="form-control" name="username" value="">
-                            </div>
+                            <select class="form-control" style="margin-bottom:1.2em; float:left; margin-right:0.01%" name="username">
+                                <option disabled selected>Nama Pelanggan</option>
+                                @foreach ($username as $listusername)
+                                    <option value="{{$listusername->username}}">{{$listusername->nama_pelanggan}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Nama Instruktur</label>
-                                <input type="text" class="form-control" name="no_induk">
-                            </div>
+                            <select class="form-control" style="margin-bottom:1.2em; float:left; margin-right:0.01%" name="no_induk">
+                                <option disabled selected>Nama Instruktur</option>
+                                @foreach ($instruktur as $listinstruktur)
+                                    <option value="{{$listinstruktur->no_induk}}">{{$listinstruktur->nama_instruktur}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
@@ -235,20 +313,8 @@
     </div>
 </div>
 
-<div id="modal-delete" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <center>
-                    Anda yakin ingin menghapus data?<hr><br>
-                        <button>Iya</button>
-                        <button>Tidak</button>
-                    </center>
-                </div>
-            </div>
-        </div>
 
-                </div>
+
             </div>
         </div>
     </div>

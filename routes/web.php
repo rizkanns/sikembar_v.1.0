@@ -26,14 +26,10 @@ Route::get('/admin-dashboard', function ()
 {
     return view('admin.dashboard');
 });
-Route::get('/admin-pembayaran', function ()
-{
-    return view('admin.pembayaran');
-});
-Route::get('/admin-jadwal', function ()
-{
-    return view('admin.jadwal');
-});
+// Route::get('/admin-jadwal', function ()
+// {
+//     return view('admin.jadwal');
+// });
 Route::get('/admin-pelanggan', function ()
 {
     return view('admin.pelanggan');
@@ -58,12 +54,13 @@ Route::get('/instruktur-login', function ()
 {
     return view('instruktur.login');
 });
+
 Route::post('/admin/login','AdminController@login');
 
 Route::post('/admin/jadwal/insert','AdminController@insertJadwal');
 Route::get('/admin/jadwal/update/{id}', 'AdminController@updateJadwal');
 Route::get('/admin/jadwal/delete/{id}', 'AdminController@deleteJadwal');
-Route::get('/admin-jadwal','AdminController@showJadwal');
+Route::get('/admin-jadwal','AdminController@indexJadwal');
 
 Route::post('/admin/pelanggan/insert','AdminController@insertPelanggan');
 Route::get('/admin/pelanggan/update/{id}', 'AdminController@updatePelanggan');
@@ -79,27 +76,6 @@ Route::post('/admin/mobil/insert','AdminController@insertMobil');
 Route::get('/admin/mobil/update/{id}', 'AdminController@updateMobil');
 Route::get('/admin/mobil/delete/{id}', 'AdminController@deleteMobil');
 Route::get('/admin-mobil','AdminController@showMobil');
-
-
-// PEMILIK - VIEW
-Route::post('/pemilik/login','PemilikController@login');
-
-Route::get('/pemilik-dashboard', function ()
-{
-    return view('pemilik.dashboard');
-});
-Route::get('/pemilik-keuangan', function ()
-{
-    return view('pemilik.keuangan');
-});
-Route::get('/pemilik-penilaian', function ()
-{
-    return view('pemilik.penilaian');
-});
-
-Route::get('/pemilik-keuangan','PemilikController@showKeuangan');
-Route::get('/pemilik-penilaian','PemilikController@showPenilaian');
-
 
 // INSTRUKTUR - VIEW
 Route::get('/instruktur-dashboard', function ()
@@ -125,3 +101,24 @@ Route::get('/instruktur-evaluasi','InstrukturController@showEvaluasiPelanggan');
 Route::get('/instruktur-jadwal','InstrukturController@showJadwal');
 
 Route::get('/instruktur-pelanggan','InstrukturController@showPelanggan');
+
+
+// PEMILIK - VIEW
+Route::get('/pemilik-dashboard', function ()
+{
+    return view('pemilik.dashboard');
+});
+Route::get('/pemilik-keuangan', function ()
+{
+    return view('pemilik.keuangan');
+});
+Route::get('/pemilik-penilaian', function ()
+{
+    return view('pemilik.penilaian');
+});
+Route::post('/pemilik/login','PemilikController@login');
+
+Route::get('/pemilik-keuangan','PemilikController@showKeuangan');
+Route::get('/pemilik-penilaian','PemilikController@showPenilaian');
+
+

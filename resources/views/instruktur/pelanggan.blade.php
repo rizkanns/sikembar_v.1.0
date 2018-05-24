@@ -53,9 +53,9 @@
                                 <div class="card-content table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
-                                            <th>No</th>
+                                            {{-- <th>No</th> --}}
                                             <th>Username</th>
-                                            <!-- <th>Email</th> -->
+                                            <th>Password</th>
                                             <th>Nama</th>
                                             <th>No HP</th>
                                             <th>Alamat</th>
@@ -63,45 +63,19 @@
                                             <th>Paket</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>pelkenuk</td>
-                                                <!-- <td>pelkenuk@gmail.com</td> -->
-                                                <td>Rizka Annisa</td>
-                                                <td>081515580307</td>
-                                                <td>PMI II no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>salina</td>
-                                                <!-- <td>salina@gmail.com</td> -->
-                                                <td>Dwi Irsalina</td>
-                                                <td>081515580307</td>
-                                                <td>Keputih II no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>                        
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>popsky</td>
-                                                <!-- <td>popsky@gmail.com</td> -->
-                                                <td>Shafira Aisyah</td>
-                                                <td>081515580307</td>
-                                                <td>Dinoyo Sekolahan no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>salina</td>
-                                                <!-- <td>salina@gmail.com</td> -->
-                                                <td>Dwi Irsalina</td>
-                                                <td>081515580307</td>
-                                                <td>Keputih II no.3 Surabaya</td>
-                                                <td>P</td>
-                                                <td>New Avanza</td>                                                
-                                            </tr>
+                                            @foreach($pelanggan as $listpelanggan)
+                                                    <tr>
+                                                        <!-- <td></td> -->
+                                                        <td>{{$listpelanggan->username}}</td>
+                                                        <td>{{$listpelanggan->password}}</td>
+                                                        <td>{{$listpelanggan->nama_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->telp_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->alamat_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->jk_pelanggan}}</td>
+                                                        <!-- <td></td> -->
+                                                        <td>
+                                                    </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <br>

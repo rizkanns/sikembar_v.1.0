@@ -24,18 +24,20 @@ class adminController extends Controller
 	}
 
 	// jadwal
-	public function getUsername()
+	public function indexJadwal()
 	{
-		$username = DB::table('users')->select('nama_pelanggan')->orderBy('nama_pelanggan')->get();
-		return redirect('/admin-jadwal');
+		$jadwal = DB::table('jadwals')->get();
+		$username = DB::table('users')->select('username','nama_pelanggan')->orderBy('nama_pelanggan')->get();
+		$instruktur = DB::table('instrukturs')->select('no_induk','nama_instruktur')->orderBy('nama_instruktur')->get();
+		return view('admin.jadwal', ['jadwal'=>$jadwal,'username'=>$username,'instruktur'=>$instruktur]);
 	}
 
     public function insertJadwal(Request $request)
     {
 		$jadwal = New Jadwal;
-		$jadwal->id = $request->input('id');
-		$jadwal->no_induk = $request->input('no_induk');
+		$jadwal->id_jadwal = $request->input('id_jadwal');
 		$jadwal->username = $request->input('username');
+		$jadwal->no_induk = $request->input('no_induk');
 		$jadwal->tanggal_kursus = $request->input('tanggal_kursus');
 		$jadwal->jam_mulai = $request->input('jam_mulai');
 		$jadwal->jam_selesai = $request->input('jam_selesai');
@@ -45,13 +47,13 @@ class adminController extends Controller
 
 	public function updateJadwal(Request $request, $id)
     {
-    	DB::table('jadwals')->where('id',$id)->update($request->all());
+    	DB::table('jadwals')->where('id_jadwal',$id)->update($request->all());
     	return redirect('/admin-jadwal');
     }
 
 	public function deleteJadwal($id)
 	{
-    	DB::table('jadwals')->where('id',$id)->delete();
+    	DB::table('jadwals')->where('id_jadwal',$id)->delete();
     	return redirect('/admin-jadwal');
     }
 

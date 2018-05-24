@@ -150,7 +150,7 @@
                                                         <td>
                                                             <button data-target="#myModal{{$listinstruktur->no_induk}}" type="button" data-toggle="modal" rel="tooltip" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
                                                         </td>
-    <div class="modal fade" id="myModal{{$listinstruktur->no_induk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModal{{$listinstruktur->no_induk}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
