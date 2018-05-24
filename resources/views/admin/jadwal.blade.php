@@ -15,14 +15,8 @@
                 <ul class="nav">
                     <li>
                         <a href="{{ url('admin-dashboard') }}">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('admin-pembayaran') }}">
                             <i class="material-icons">playlist_add_check</i>
-                            <p>Pembayaran</p>
+                            <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="active">
@@ -132,7 +126,7 @@
                                         </tbody>
                                     </table>
                                     <br><br>
-                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-primary pull-right">Update Jadwal</button>
+                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-primary pull-right">Tambah Jadwal</button>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -146,8 +140,8 @@
                                     <table class="table">
                                         <thead class="text-primary">
                                             <th>No</th>
-                                            <th>Nama Pelanggan</th>
                                             <th>Nama Instruktur</th>
+                                            <th>Nama Pelanggan</th>
                                             <th>Tanggal</th>
                                             <th>Jam Mulai</th>
                                             <th>Jam Berakhir</th>
@@ -156,12 +150,13 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Neny Lukita</td>
-                                                <td>Kyungso</td>
-                                                <td>02-11-2017</td>
-                                                <td>15.00</td>
-                                                <td>17.00</td>
+                                                @foreach($jadwal as $listjadwal)
+                                                <td>{{$listjadwal->id}}</td>
+                                                <td>{{$listjadwal->no_induk}}</td>
+                                                <td>{{$listjadwal->username}}</td>
+                                                <td>{{$listjadwal->tanggal_kursus}}</td>
+                                                <td>{{$listjadwal->jam_mulai}}</td>
+                                                <td>{{$listjadwal->jam_selesai}}</td>
                                                 <td>
                                                     <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
                                                 </td>
@@ -169,90 +164,7 @@
                                                     <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button> 
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Anindya Hantari</td>
-                                                <td>Illham Hanafi</td>
-                                                <td>06-11-2017</td>
-                                                <td>09.00</td>
-                                                <td>11.00</td>
-                                                <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Rizka Annisa</td>
-                                                <td>Azka Yasin</td>
-                                                <td>12-11-2017</td>
-                                                <td>09.00</td>
-                                                <td>11.00</td>
-                                                <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Annisa</td>
-                                                <td>Yasin</td>
-                                                <td>17-11-2017</td>
-                                                <td>09.00</td>
-                                                <td>11.00</td>
-                                                <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Shafira A Rahmadhani</td>
-                                                <td>Ariya Wildan</td>
-                                                <td>21-11-2017</td>
-                                                <td>12.00</td>
-                                                <td>14.00</td>
-                                                <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Rizka Annisa</td>
-                                                <td>Azka Yasin</td>
-                                                <td>25-11-2017</td>
-                                                <td>09.00</td>
-                                                <td>11.00</td>
-                                                <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>Dwi Irsalina</td>
-                                                <td>Neny Lukitasari</td>
-                                                <td>29-11-2017</td>
-                                                <td>08.00</td>
-                                                <td>10.00</td>
-                                                <td>
-                                                    <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modal-delete" href="#modal-akun" style="padding: 1px 2px; height: 25px; width: 80px;">Delete</button>
-                                                </td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="clearfix"></div>
@@ -270,12 +182,13 @@
                 <h4 class="modal-title" id="myModalLabel">Isi jadwal</h4>
             </div>
             <div class="modal-body">                       
-                <form>
+                <form action="{{ url('/admin/jadwal/insert') }}" method = "post">
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group label-floating">
                                 <label class="control-label">Nama Pelanggan</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="username" value="">
                             </div>
                         </div>
                     </div>
@@ -283,7 +196,7 @@
                         <div class="col-md-12">
                             <div class="form-group label-floating">
                                 <label class="control-label">Nama Instruktur</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="no_induk">
                             </div>
                         </div>
                     </div>
@@ -292,7 +205,7 @@
                             <div class="form-group label-floating">
                                 <!-- <label class="control-label">Tanggal</label> -->
                                 <label>Tanggal</label>
-                                <input type="date" class="form-control">
+                                <input type="date" class="form-control" name="tanggal_kursus">
                             </div>
                         </div>
                     </div>
@@ -301,7 +214,7 @@
                             <div class="form-group label-floating">
                                 <!-- <label class="control-label">Jam</label> -->
                                 <label>Jam Mulai</label>
-                                <input type="time" class="form-control">
+                                <input type="time" class="form-control" name="jam_mulai">
                             </div>
                         </div>
                     </div>
@@ -310,7 +223,7 @@
                             <div class="form-group label-floating">
                                 <!-- <label class="control-label">Jam</label> -->
                                 <label>Jam Berakhir</label>
-                                <input type="time" class="form-control">
+                                <input type="time" class="form-control" name="jam_selesai">
                             </div>
                         </div>
                     </div>

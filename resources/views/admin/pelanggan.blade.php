@@ -15,14 +15,8 @@
                 <ul class="nav">
                     <li>
                         <a href="{{ url('admin-dashboard') }}">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('admin-pembayaran') }}">
                             <i class="material-icons">playlist_add_check</i>
-                            <p>Pembayaran</p>
+                            <p>Dashboard</p>
                         </a>
                     </li>
                     <li>
@@ -64,7 +58,7 @@
                                     <p class="category">Tambah data pelanggan</p>
                                 </div>
                                 <div class="card-content">
-                                    <form action="{{ url('/admin/pelanggan/insert') }}" method = "post">
+                                    <form action="{{ url('/pelanggan/register') }}" method = "post">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-6">
@@ -76,7 +70,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group label-floating">
                                                     <label class="control-label">Password</label>
-                                                    <input type="password" class="form-control" name="password">
+                                                    <input type="text" class="form-control" name="password">
                                                 </div>
                                             </div>
                                         </div>

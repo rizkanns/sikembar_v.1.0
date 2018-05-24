@@ -24,6 +24,12 @@ class adminController extends Controller
 	}
 
 	// jadwal
+	public function getUsername()
+	{
+		$username = DB::table('users')->select('nama_pelanggan')->orderBy('nama_pelanggan')->get();
+		return redirect('/admin-jadwal');
+	}
+
     public function insertJadwal(Request $request)
     {
 		$jadwal = New Jadwal;

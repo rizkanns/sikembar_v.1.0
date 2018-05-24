@@ -16,14 +16,8 @@
                 <ul class="nav">
                     <li>
                         <a href="{{ url('admin-dashboard') }}">
-                            <i class="material-icons">dashboard</i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('admin-pembayaran') }}">
                             <i class="material-icons">playlist_add_check</i>
-                            <p>Pembayaran</p>
+                            <p>Dashboard</p>
                         </a>
                     </li>
                     <li>

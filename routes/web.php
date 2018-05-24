@@ -16,7 +16,12 @@ use App\Instruktur;
 Route::get('/','PelangganController@tampilkanUIPelanggan');
 
 
-// ADMIN - VIEW
+// PELANGGAN
+Route::post('/pelanggan/register','PelangganController@insertPelanggan');
+Route::post('/pelanggan/login','PelangganController@loginPelanggan');
+
+
+// ADMIN
 Route::get('/admin-dashboard', function ()
 {
     return view('admin.dashboard');
@@ -75,6 +80,7 @@ Route::get('/admin/mobil/update/{id}', 'AdminController@updateMobil');
 Route::get('/admin/mobil/delete/{id}', 'AdminController@deleteMobil');
 Route::get('/admin-mobil','AdminController@showMobil');
 
+
 // PEMILIK - VIEW
 Route::post('/pemilik/login','PemilikController@login');
 
@@ -92,7 +98,6 @@ Route::get('/pemilik-penilaian', function ()
 });
 
 Route::get('/pemilik-keuangan','PemilikController@showKeuangan');
-
 Route::get('/pemilik-penilaian','PemilikController@showPenilaian');
 
 

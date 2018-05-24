@@ -22,4 +22,27 @@ class PelangganController extends Controller
     {
         return view('pelanggan.index');
     }
+
+    public function insertPelanggan(Request $request)
+    {
+		$pelanggan = New User;
+		$pelanggan->username = $request->input('username');
+		$pelanggan->password = $request->input('password');
+		$pelanggan->nama_pelanggan = $request->input('nama_pelanggan');
+		$pelanggan->alamat_pelanggan = $request->input('alamat_pelanggan');
+		$pelanggan->telp_pelanggan = $request->input('telp_pelanggan');
+		$pelanggan->jk_pelanggan = $request->input('jk_pelanggan');
+		$pelanggan->save();
+		return redirect('/');
+	}
+
+	public function loginPelanggan(Request $request)
+	{
+		$pelanggan = DB::table('users')->where('username', $request->username)->get();
+		if(empty($pelanggan))
+		{
+			return redirect('/');
+		}
+		return redirect('/admin-pelanggan');
+	}
 }
