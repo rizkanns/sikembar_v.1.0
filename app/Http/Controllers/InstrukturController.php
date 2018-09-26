@@ -41,6 +41,7 @@ class InstrukturController extends Controller
     public function showJadwal()
 	{
         $jadwal = DB::table('jadwals')->get();
+        // $jadwal->username = DB::table('jadwals')->select('username')->get();	
 		return view('instruktur.jadwal', ['jadwal'=>$jadwal]);
     }
 

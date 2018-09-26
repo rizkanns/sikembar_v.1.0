@@ -58,7 +58,7 @@
                                     <p class="category">Tambah data pelanggan</p>
                                 </div>
                                 <div class="card-content">
-                                    <form action="{{ url('/pelanggan/register') }}" method = "post">
+                                    <form action="{{ url('/admin/pelanggan/insert') }}" method = "post">
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-6">
@@ -98,16 +98,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="dropdown col-md-3">
-                                                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">Paket Kursus</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="#">New Avanza AT</a></li>
-                                                    <li><a href="#">Toyota Agya AT</a></li>
-                                                    <li><a href="#">Honda Mobilio AT</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">New Avanza MT</a></li>
-                                                    <li><a href="#">Toyota Agya MT</a></li>
-                                                    <li><a href="#">Honda Mobilio MT</a></li>
-                                                </ul>
+                                                <select class="form-control" style="margin-bottom:1.2em; float:left; margin-right:0.01%" name="id_paket">
+                                                     <option disabled selected>Nama Paket</option>
+                                                        @foreach ($paket as $listpaket)
+                                                            <option value="{{$listpaket->id_paket}}">{{$listpaket->nama_paket}}</option>
+                                                        @endforeach
+                                                    </select>
                                             </div><br><br>
                                             <label>&nbsp;&nbsp;&nbsp;Jenis Kelamin</label><br>
                                             <div class="dropdown col-md-3">
@@ -144,6 +140,7 @@
                                             <th>No HP</th>
                                             <th>Alamat</th>
                                             <th>Jenis Kelamin</th>
+                                            <th>ID_paket</th>
                                             <!-- <th>Paket</th> -->
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -158,6 +155,8 @@
                                                         <td>{{$listpelanggan->telp_pelanggan}}</td>
                                                         <td>{{$listpelanggan->alamat_pelanggan}}</td>
                                                         <td>{{$listpelanggan->jk_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->jk_pelanggan}}</td>
+                                                        <td>{{$listpelanggan->id_paket}}</td>
                                                         <!-- <td></td> -->
                                                         <td>
                                                             <button data-target="#myModal{{$listpelanggan->username}}" type="button" data-toggle="modal" rel="tooltip" class="btn btn-success" style="padding: 1px 2px; height: 25px; width: 80px;">Edit</button>

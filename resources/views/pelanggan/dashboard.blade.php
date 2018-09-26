@@ -319,10 +319,10 @@
 
     @include('pelanggan.parts.footer')
     
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.particleground.js"></script>
-    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="pelanggan/assets/js/jquery.min.js"></script>
+    <script src="pelanggan/assets/js/bootstrap.min.js"></script>
+    <script src="pelanggan/assets/js/jquery.particleground.js"></script>
+    <script src="pelanggan/assets/js/scrollreveal.min.js"></script>
     <script type="text/javascript">
         $("#navi").css('background-color','transparent');
         $("#navi").css('border','none');

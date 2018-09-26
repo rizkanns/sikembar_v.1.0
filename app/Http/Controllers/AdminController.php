@@ -26,7 +26,7 @@ class adminController extends Controller
 	// jadwal
 	public function indexJadwal()
 	{
-		$jadwal = DB::table('jadwals')->get();
+		$jadwal = DB::table('jadwals')->orderBy('tanggal_kursus')->get();
 		$username = DB::table('users')->select('username','nama_pelanggan')->orderBy('nama_pelanggan')->get();
 		$instruktur = DB::table('instrukturs')->select('no_induk','nama_instruktur')->orderBy('nama_instruktur')->get();
 		return view('admin.jadwal', ['jadwal'=>$jadwal,'username'=>$username,'instruktur'=>$instruktur]);
@@ -66,6 +66,13 @@ class adminController extends Controller
 
 
 	// pelanggan
+	public function indexPelanggan()
+	{
+		$pelanggan = DB::table('users')->get();
+		$paket = DB::table('pakets')->get();
+		return view('admin.pelanggan', ['pelanggan'=>$pelanggan,'paket'=>$paket]);
+	}
+
     public function insertPelanggan(Request $request)
     {
 		$pelanggan = New User;
@@ -75,6 +82,7 @@ class adminController extends Controller
 		$pelanggan->alamat_pelanggan = $request->input('alamat_pelanggan');
 		$pelanggan->telp_pelanggan = $request->input('telp_pelanggan');
 		$pelanggan->jk_pelanggan = $request->input('jk_pelanggan');
+		$pelanggan->id_paket = $request->input('id_paket');
 		$pelanggan->save();
 		return redirect('/admin-pelanggan');
 	}

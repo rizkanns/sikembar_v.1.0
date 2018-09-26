@@ -98,13 +98,15 @@
                                                     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Daftar</label>
                                                     <div class="login-form">
                                                         <div class="sign-in-htm">
+                                                            <form action="{{ url('/pelanggan/login') }}" method = "post">
+                                        {{ csrf_field() }}
                                                             <div class="group">
                                                                 <label for="user" class="label">Username</label>
-                                                                <input id="user" type="text" class="input">
+                                                                <input id="user" type="text" class="input" name="username">
                                                             </div>
                                                             <div class="group">
                                                                 <label for="pass" class="label">Password</label>
-                                                                <input id="pass" type="password" class="input" data-type="password">
+                                                                <input id="pass" type="password" class="input" data-type="password" name="password">
                                                             </div>
                                                             <div class="group">
                                                                 <input id="check" type="checkbox" class="check" checked>
@@ -117,36 +119,47 @@
                                                             <div class="foot-lnk">
                                                                 <a href="#forgot">Lupa Password?</a>
                                                             </div>
+                                                        </form>
                                                         </div>
                                                         <div class="sign-up-htm">
+                                                            <form action="{{ url('/pelanggan/register') }}" method = "post">
+                                        {{ csrf_field() }}
                                                             <div class="group">
                                                                 <label for="user" class="label">Username</label>
-                                                                <input id="user" type="text" class="input">
+                                                                <input id="user" type="text" class="input" name="username">
                                                             </div>
                                                             <div class="group">
                                                                 <label for="pass" class="label">Password</label>
-                                                                <input id="pass" type="password" class="input" data-type="password">
+                                                                <input id="pass" type="password" class="input" data-type="passssword" name="password">
                                                             </div>
                                                             <div class="group">
                                                                 <label for="pass" class="label">Nama Lengkap</label>
-                                                                <input id="pass" type="password" class="input" data-type="password">
+                                                                <input id="text" type="text" class="input" data-type="nama_pelanggan" name="username">
                                                             </div>
                                                             <div class="group">
                                                                 <label for="nomor" class="label">Nomor HP</label>
-                                                                <input id="nomor" type="text" class="input">
+                                                                <input id="nomor" type="text" class="input"name="telp_pelanggan">
                                                             </div>
                                                             <div class="group">
                                                                 <label for="pass" class="label">Alamat</label>
-                                                                <input id="pass" type="text" class="input">
+                                                                <input id="pass" type="text" class="input" name="alamat_pelanggan">
                                                             </div>
                                                             <center>
+                                                                {{-- <div class="group">
+                                                                    <select class="form" style="margin-bottom:1.2em; float:left; margin-right:0.01%" name="id_paket">
+                                                                         <option>Nama Paket</option>
+                                                                            @foreach ($paket as $listpaket)
+                                                                                <option value="{{$listpaket->id_paket}}">{{$listpaket->nama_paket}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                </div> --}}
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input type="radio" name="optionsRadios">
+                                                                    <input type="radio" name="jk_pelanggan" value="Laki-laki">
                                                                     Laki-laki
                                                                 </label>
                                                                 <label>
-                                                                    <input type="radio" name="optionsRadios">
+                                                                    <input type="radio" name="jk_pelanggan" value="Perempuan">
                                                                     Perempuan
                                                                 </label>
                                                             </div>
@@ -156,8 +169,9 @@
                                                             </div>
                                                             <div class="hr"></div>
                                                             <div class="foot-lnk">
-                                                                <label for="tab-1">Sudah member?</a>
+                                                                <label for="tab-1">Sudah member?</label>
                                                             </div>
+                                                        </form>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -50,7 +50,7 @@
             @include('admin.parts.navbar')
             <div class="content">
                 <div class="container-fluid">
-                    <div class="row">                            
+                    {{-- <div class="row">                            
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header" data-background-color="purple">
@@ -131,12 +131,80 @@
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4 class="title">Jadwal</h4>
+                                    <p class="category">Tambah data jadwal</p>
+                                </div>
+                                <div class="card-content">
+                                    <form action="{{ url('/admin/jadwal/insert') }}" method = "post">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="form-control" style="margin-bottom:1.2em; float:left; margin-right:0.01%" name="username">
+                                <option disabled selected>Nama Pelanggan</option>
+                                @foreach ($username as $listusername)
+                                    <option value="{{$listusername->username}}">{{$listusername->nama_pelanggan}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select class="form-control" style="margin-bottom:1.2em; float:left; margin-right:0.01%" name="no_induk">
+                                <option disabled selected>Nama Instruktur</option>
+                                @foreach ($instruktur as $listinstruktur)
+                                    <option value="{{$listinstruktur->no_induk}}">{{$listinstruktur->nama_instruktur}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group label-floating">
+                                <!-- <label class="control-label">Tanggal</label> -->
+                                <label>Tanggal</label>
+                                <input type="date" class="form-control" name="tanggal_kursus">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group label-floating">
+                                <!-- <label class="control-label">Jam</label> -->
+                                <label>Jam Mulai</label>
+                                <input type="time" class="form-control" name="jam_mulai">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group label-floating">
+                                <!-- <label class="control-label">Jam</label> -->
+                                <label>Jam Berakhir</label>
+                                <input type="time" class="form-control" name="jam_selesai">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">Tambahkan Jadwal</button>
+                    <div class="clearfix"></div>
+                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">   
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header" data-background-color="purple">
                                     <h4 class="title">Jadwal Kursus</h4>
                                 </div>
                                 <div class="card-content table-responsive">
+                                    {{-- <button data-target="#myModal" type="button" data-toggle="modal" class="btn btn-primary pull-right">Tambah Jadwal</button> --}}
+                                    <div class="clearfix"></div>
                                     <table class="table">
                                         <thead class="text-primary">
                                             <th>No</th>

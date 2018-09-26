@@ -17,6 +17,7 @@
                         <hr><br>
                     </div>
                 </div>
+                <form action="{{ url('/pelanggan-dashboard') }}" method = "get">
                 <div id="form-nlc">
                     <div class="col-sm-6">
                             <p><b>---Harga Kursus---</b></p>
@@ -40,12 +41,13 @@
                                 <option>New Avanza AT</option>
                                 <option>Mobilio AT</option>
                                 <option>Toyota Agya AT</option>
-                            </select>
+                        </select>
                     </div>
                     <div class="col-sm-12" style="margin-bottom:2em">
-                        <button class="btn btn-lg btn-sch-color" style="width:100%">DAFTAR</button>
+                        <button class="btn btn-lg btn-sch-color" style="width:100%" >DAFTAR</button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
     </div>

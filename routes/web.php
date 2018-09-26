@@ -17,6 +17,11 @@ Route::get('/','PelangganController@tampilkanUIPelanggan');
 
 
 // PELANGGAN
+Route::get('/pelanggan-form', function ()
+{
+    return view('pelanggan.form');
+});
+Route::get('/pelanggan-dashboard','PelangganController@indexPaket');
 Route::post('/pelanggan/register','PelangganController@insertPelanggan');
 Route::post('/pelanggan/login','PelangganController@loginPelanggan');
 
@@ -30,10 +35,10 @@ Route::get('/admin-dashboard', function ()
 // {
 //     return view('admin.jadwal');
 // });
-Route::get('/admin-pelanggan', function ()
-{
-    return view('admin.pelanggan');
-});
+// Route::get('/admin-pelanggan', function ()
+// {
+//     return view('admin.pelanggan');
+// });
 Route::get('/admin-instruktur', function ()
 {
     return view('admin.instruktur');
@@ -65,7 +70,7 @@ Route::get('/admin-jadwal','AdminController@indexJadwal');
 Route::post('/admin/pelanggan/insert','AdminController@insertPelanggan');
 Route::get('/admin/pelanggan/update/{id}', 'AdminController@updatePelanggan');
 Route::get('/admin/pelanggan/delete/{id}', 'AdminController@deletePelanggan');
-Route::get('/admin-pelanggan','AdminController@showPelanggan');
+Route::get('/admin-pelanggan','AdminController@indexPelanggan');
 
 Route::post('/admin/instruktur/insert','AdminController@insertInstruktur');
 Route::get('/admin/instruktur/update/{id}', 'AdminController@updateInstruktur');
@@ -76,6 +81,7 @@ Route::post('/admin/mobil/insert','AdminController@insertMobil');
 Route::get('/admin/mobil/update/{id}', 'AdminController@updateMobil');
 Route::get('/admin/mobil/delete/{id}', 'AdminController@deleteMobil');
 Route::get('/admin-mobil','AdminController@showMobil');
+
 
 // INSTRUKTUR - VIEW
 Route::get('/instruktur-dashboard', function ()
@@ -99,7 +105,6 @@ Route::post('/instruktur/evaluasi/insert','InstrukturController@insertEvaluasiPe
 Route::get('/instruktur-evaluasi','InstrukturController@showEvaluasiPelanggan');
 
 Route::get('/instruktur-jadwal','InstrukturController@showJadwal');
-
 Route::get('/instruktur-pelanggan','InstrukturController@showPelanggan');
 
 

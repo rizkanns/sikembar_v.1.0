@@ -6,7 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Html\FormFacade;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use App\DetilJadwal;
+use App\DetilKursus;
+use App\EvaluasiInstruktur;
+use App\EvaluasiPelanggan;
+use App\Instruktur;
+use App\Jadwal;
+use App\Mobil;
 use App\Paket;
+use App\Pembayaran;
+use App\User;
 use DB;
 
 class PelangganController extends Controller
@@ -15,13 +24,20 @@ class PelangganController extends Controller
     {
 		
 		$paket = DB::table('pakets')->get();
-		return view('pelanggan.paket', ['paket'=>$paket]);
+		return view('pelanggan.dashboard', ['paket'=>$paket]);
 	}
 
 	public function tampilkanUIPelanggan()
     {
         return view('pelanggan.index');
     }
+
+    public function indexPelanggan()
+	{
+		$pelanggan = DB::table('users')->get();
+		$paket = DB::table('pakets')->get();
+		return view('pelanggan.index', ['pelanggan'=>$pelanggan,'paket'=>$paket]);
+	}
 
     public function insertPelanggan(Request $request)
     {
@@ -33,7 +49,7 @@ class PelangganController extends Controller
 		$pelanggan->telp_pelanggan = $request->input('telp_pelanggan');
 		$pelanggan->jk_pelanggan = $request->input('jk_pelanggan');
 		$pelanggan->save();
-		return redirect('/');
+		return redirect('/pelanggan-form');
 	}
 
 	public function loginPelanggan(Request $request)
@@ -43,6 +59,6 @@ class PelangganController extends Controller
 		{
 			return redirect('/');
 		}
-		return redirect('/admin-pelanggan');
+		return redirect('/pelanggan-form');
 	}
 }
